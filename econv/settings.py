@@ -55,7 +55,7 @@ ROOT_URLCONF = 'econv.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['econv/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
