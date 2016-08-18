@@ -3,16 +3,39 @@
   <head>
     <meta charset='utf-8'>
     <title>econv</title>
+    <style>
+      label, div {
+        display: block;
+        margin: 1em;
+      }
+    </style>
   </head>
   <body>
-    <label>Enter URL:<input name='url'></label>
-    <br>
-    <label>Select file:<input name='file' type='file'></label>
-    <br>
-    <label>Or type text:
-      <textarea name='text'></textarea>
-    </label>
-    <br>
-    <button type="submit">OK</button>
+    <form action='conv/' method='POST'>
+      <label>Enter URL: <input name='url'></label>
+      <label>Select file: <input name='file' type='file'></label>
+      <label>Or type text:<br>
+        <textarea name='text'></textarea>
+      </label>
+      <div>
+        <select name='from'>
+          <option value='auto' selected>AUTO DETECT</option>
+          {% for codec in codecs %}
+            <option value='{{ codec.name }}'>{{ codec }}</option>
+          {% endfor %}
+        </select>
+        ->
+        <select name='to'>
+          {% for codec in codecs %}
+            {% if codec.name == 'utf_8' %}
+              <option value='{{ codec.name }}' selected>{{ codec }}</option>
+            {% else %}
+              <option value='{{ codec.name }}'>{{ codec }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+        <button type="submit">OK</button>
+      </div>
+    </form>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>econv</title>
+    <style>
+      iframe {
+        display: block;
+        width: 16cm;
+        height: 9cm;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe srcdoc='{{ url_result|safe }}'></iframe>
+    <textarea>{{ text_result|safe }}</textarea>
+  </body>
+</html>

@@ -19,6 +19,7 @@ from django.contrib import admin
 from econv import views
 
 urlpatterns = [
-	url(r'^$', views.index),
+    url(r'^$', views.index),
+    url(r'^conv/', views.conv),
     url(r'^admin/', admin.site.urls),
 ]
