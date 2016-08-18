@@ -1,3 +1,7 @@
-from django.db import models
+from django.db.models import Model
+from django.db.models import CharField
 
-# Create your models here.
+class Codec(Model):
+	name = CharField(max_length=20)
+	alias = CharField(max_length=100)
+	language = CharField(max_length=100)
